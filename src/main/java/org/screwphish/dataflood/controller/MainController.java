@@ -1,33 +1,29 @@
 package org.screwphish.dataflood.controller;
 
-import org.screwphish.dataflood.client.MainClient;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import org.screwphish.dataflood.client.DataFloodService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
-import java.time.Duration;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/")
 public class MainController {
 
-    @Inject
-    private MainClient mainClient;
+	private final DataFloodService dataFloodService;
+	private String redirectedUri;
+	private String sessionId;
 
-    @GetMapping("/getbody")
-    public Mono<String> hello(){
-        return mainClient.getWebClient().get().uri("P4S4N6B4D4NC0K").exchange().flatMap( response -> {
-            System.out.println(response.headers().asHttpHeaders());
-            return response.bodyToMono(String.class);
-        });
-    }
+	@Inject
+	public MainController(DataFloodService dataFloodService) {
+		this.dataFloodService = dataFloodService;
+	}
 
-    @GetMapping("/Login.php")
-    public Mono<String> redirect(@RequestParam Map<String, String> allRequestParams){
-        var output =  WebClient.create("https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid=" + allRequestParams.get("sessionid")).get().retrieve().bodyToMono(String.class).block(Duration.ofSeconds(10L));
-        System.out.println(output);
-        return null;
-    }
+
+	@GetMapping("/getbody")
+	public String hello() {
+		dataFloodService.executeRedirects();
+		return "executing...";
+	}
 }
