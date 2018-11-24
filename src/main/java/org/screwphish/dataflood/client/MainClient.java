@@ -9,7 +9,7 @@ public class MainClient {
 	final WebClient webClient;
 
 	public MainClient() {
-		this.webClient = WebClient.create("http://t.cn/ELPUoSv");
+		this.webClient = WebClient.create("http://t.cn/ELPUoSv?id=41652025");
 	}
 
 }
