@@ -37,10 +37,19 @@ public class DataFloodService {
 		mainClient.webClient
 				.get()
 				.uri("https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid={sessionId}", sessionId)
-				.exchange()
-				.doOnNext(clientResponse ->
-						System.out.println(clientResponse.headers().asHttpHeaders())
-				)
+				.header("Referer", redirectedUri)
+				.header("Cookie", sessionId)
+				.retrieve()
+				.bodyToMono(String.class);
+		var data = mainClient.webClient
+				.get()
+				.uri("https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/assets/signin.php")
+				.header("Referer", "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid=" + sessionId)
+				.header("Cookie", sessionId)
+				.retrieve()
+				.bodyToMono(String.class)
 				.block();
+
+		System.out.println(data);
 	}
 }
