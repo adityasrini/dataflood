@@ -7,6 +7,116 @@
 	},
 	"item": [
 		{
+			"name": "initial GET requests",
+			"item": [
+				{
+					"name": "initial request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/P4S4N6B4D4NC0K",
+							"protocol": "https",
+							"host": [
+								"mail-requestcancelation3dsupp",
+								"orderspayauthorizedappsid",
+								"com"
+							],
+							"path": [
+								"P4S4N6B4D4NC0K"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login.php",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "PHPSESSID={{PHPSESSID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid={{sessionId}}",
+							"protocol": "https",
+							"host": [
+								"mail-requestcancelation3dsupp",
+								"orderspayauthorizedappsid",
+								"com"
+							],
+							"path": [
+								"Login.php"
+							],
+							"query": [
+								{
+									"key": "sslchannel",
+									"value": "true"
+								},
+								{
+									"key": "sessionid",
+									"value": "{{sessionId}}"
+								},
+								{
+									"key": "Cookie",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin.php",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "PHPSESSID={{PHPSESSID}}",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid={{sessionId}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/assets/signin.php",
+							"protocol": "https",
+							"host": [
+								"mail-requestcancelation3dsupp",
+								"orderspayauthorizedappsid",
+								"com"
+							],
+							"path": [
+								"assets",
+								"signin.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "forms",
 			"item": [
 				{
@@ -874,6 +984,11 @@
 								"key": "Upgrade-Insecure-Requests",
 								"type": "text",
 								"value": "1"
+							},
+							{
+								"key": "user-agent",
+								"value": "{{user-agent}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -885,8 +1000,8 @@
 									"type": "text"
 								},
 								{
-									"key": "mnname",
-									"value": "{{mnname}}",
+									"key": "mname",
+									"value": "{{mname}}",
 									"type": "text"
 								},
 								{
@@ -1057,111 +1172,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "initial request",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/P4S4N6B4D4NC0K",
-					"protocol": "https",
-					"host": [
-						"mail-requestcancelation3dsupp",
-						"orderspayauthorizedappsid",
-						"com"
-					],
-					"path": [
-						"P4S4N6B4D4NC0K"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login.php",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Cookie",
-						"value": "PHPSESSID={{PHPSESSID}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid={{sessionId}}",
-					"protocol": "https",
-					"host": [
-						"mail-requestcancelation3dsupp",
-						"orderspayauthorizedappsid",
-						"com"
-					],
-					"path": [
-						"Login.php"
-					],
-					"query": [
-						{
-							"key": "sslchannel",
-							"value": "true"
-						},
-						{
-							"key": "sessionid",
-							"value": "{{sessionId}}"
-						},
-						{
-							"key": "Cookie",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Signin.php",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Cookie",
-						"value": "PHPSESSID={{PHPSESSID}}",
-						"type": "text"
-					},
-					{
-						"key": "Referer",
-						"value": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/Login.php?sslchannel=true&sessionid={{sessionId}}",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://mail-requestcancelation3dsupp.orderspayauthorizedappsid.com/assets/signin.php",
-					"protocol": "https",
-					"host": [
-						"mail-requestcancelation3dsupp",
-						"orderspayauthorizedappsid",
-						"com"
-					],
-					"path": [
-						"assets",
-						"signin.php"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
